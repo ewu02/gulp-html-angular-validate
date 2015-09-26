@@ -1,6 +1,6 @@
 {
   "name": "gulp-html-angular-validate",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Gulp plugin for html-angular-validate",
   "main": "index.js",
   "scripts": {
