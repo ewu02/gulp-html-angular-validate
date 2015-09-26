@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ewu/gulp-html-angular-validate.git"
+    "url": "git+https://github.com/ewu02/gulp-html-angular-validate.git"
   },
   "keywords": [
     "angular",
@@ -22,9 +22,9 @@
   "author": "Enming Wu",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ewu/gulp-html-angular-validate/issues"
+    "url": "https://github.com/ewu02/gulp-html-angular-validate/issues"
   },
-  "homepage": "https://github.com/ewu/gulp-html-angular-validate#readme",
+  "homepage": "https://github.com/ewu02/gulp-html-angular-validate#readme",
   "dependencies": {
     "gulp-util": "^3.0.6",
     "html-angular-validate": "~0.1.4",
