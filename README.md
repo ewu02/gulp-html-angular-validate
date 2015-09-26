@@ -4,7 +4,7 @@ gulp-html-angular-validate
 [html-angular-validate](https://github.com/nikestep/html-angular-validate) linter plugin for Gulp.
 
 Thanks to
-[Panu Horsmalahti](https://github.com/nikestep) for html-angular-validate and creating the initial Gulp recipe
+[Nik Estep](https://github.com/nikestep) for html-angular-validate and creating the initial Gulp recipe
 
 Installation
 ------------
