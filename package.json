@@ -1,0 +1,36 @@
+{
+  "name": "gulp-html-angular-validate",
+  "version": "0.1.0",
+  "description": "Gulp plugin for html-angular-validate",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ewu/gulp-html-angular-validate.git"
+  },
+  "keywords": [
+    "angular",
+    "gulp",
+    "gulpplugin",
+    "html",
+    "lint",
+    "template",
+    "validate"
+  ],
+  "author": "Enming Wu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ewu/gulp-html-angular-validate/issues"
+  },
+  "homepage": "https://github.com/ewu/gulp-html-angular-validate#readme",
+  "dependencies": {
+    "gulp-util": "^3.0.6",
+    "html-angular-validate": "~0.1.4",
+    "through2": "^2.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
+}
