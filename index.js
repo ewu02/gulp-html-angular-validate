@@ -13,6 +13,7 @@ function validate(file, options, cb) {
     if (result.allpassed) {
       cb();
     } else {
+      var errors = [];
       gutil.log(gutil.colors.red('Found validation failures'));
       for (var i = 0; i < result.failed.length; i++) {
         var fileResult = result.failed[i];
@@ -20,6 +21,7 @@ function validate(file, options, cb) {
         for (var j = 0; j < fileResult.errors.length; j++) {
           var err = fileResult.errors[j];
           if (err.line !== undefined) {
+            errors.push(err);
             gutil.log(gutil.colors.red('  --[' +
               err.line +
               ':' +
@@ -32,7 +34,7 @@ function validate(file, options, cb) {
           }
         }
       }
-      cb(false);
+      cb(errors);
     }
   }, function(err) { // Unable to validate files
     gutil.log(gutil.colors.red('htmlangular error: ' + err));
@@ -40,10 +42,10 @@ function validate(file, options, cb) {
   });
 };
 
-module.exports = function (options) {
+module.exports = function(options) {
   options = options || {};
 
-  var stream = through.obj(function (file, enc, cb) {
+  var stream = through.obj(function(file, enc, cb) {
     if (file.isNull()) {
       return cb();
     }
