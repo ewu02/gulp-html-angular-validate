@@ -26,15 +26,6 @@ describe('gulp-html-angular-validate', function() {
       });
   });
 
-  it('should find validation failures', function(done) {
-    gulp.src('./test/html/invalid.html')
-      .pipe(validate())
-      .on('error', function(err) {
-        expect(err).to.have.length.above(0);
-        done();
-      });
-  });
-
   it('should not find validation failures', function(done) {
     gulp.src('./test/html/valid.html')
       .pipe(validate())

@@ -13,7 +13,6 @@ function validate(file, options, cb) {
     if (result.allpassed) {
       cb();
     } else {
-      var errors = [];
       gutil.log(gutil.colors.red('Found validation failures'));
       for (var i = 0; i < result.failed.length; i++) {
         var fileResult = result.failed[i];
@@ -21,7 +20,6 @@ function validate(file, options, cb) {
         for (var j = 0; j < fileResult.errors.length; j++) {
           var err = fileResult.errors[j];
           if (err.line !== undefined) {
-            errors.push(err);
             gutil.log(gutil.colors.red('  --[' +
               err.line +
               ':' +
@@ -34,7 +32,7 @@ function validate(file, options, cb) {
           }
         }
       }
-      cb(errors);
+      cb();
     }
   }, function(err) { // Unable to validate files
     gutil.log(gutil.colors.red('htmlangular error: ' + err));
