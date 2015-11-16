@@ -7,11 +7,9 @@ var through = require('through2');
 var htmlValidate = require('html-angular-validate');
 
 function defaultReportFn(fileFailures) {
-	
 	gutil.log(gutil.colors.red('Found validation failures'));
 	for (var i = 0; i < fileFailures.length; i++) {
 		var fileResult = fileFailures[i];
-		gutil.log(fileResult);
 		gutil.log(gutil.colors.yellow(fileResult.filepath));
 		for (var j = 0; j < fileResult.errors.length; j++) {
 			var err = fileResult.errors[j];
