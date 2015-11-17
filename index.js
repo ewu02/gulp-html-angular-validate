@@ -6,6 +6,27 @@ var pluginName = require('./package').name;
 var through = require('through2');
 var htmlValidate = require('html-angular-validate');
 
+function defaultReportFn(fileFailures) {
+	gutil.log(gutil.colors.red('Found validation failures'));
+	for (var i = 0; i < fileFailures.length; i++) {
+		var fileResult = fileFailures[i];
+		gutil.log(gutil.colors.yellow(fileResult.filepath));
+		for (var j = 0; j < fileResult.errors.length; j++) {
+			var err = fileResult.errors[j];
+			if (err.line !== undefined) {
+				gutil.log(gutil.colors.red('  --[' +
+				  err.line +
+				  ':' +
+				  err.col +
+				  '] ' +
+				  err.msg));
+			} else {
+				gutil.log(gutil.colors.red('  --[fileResult] ' + err.msg));
+			}
+		}
+	}
+}
+
 function validate(file, options, cb) {
   var self = this;
   htmlValidate.validate(file.path, options).then(function(result) {
@@ -13,24 +34,10 @@ function validate(file, options, cb) {
     if (result.allpassed) {
       cb();
     } else {
-      gutil.log(gutil.colors.red('Found validation failures'));
-      for (var i = 0; i < result.failed.length; i++) {
-        var fileResult = result.failed[i];
-        gutil.log(gutil.colors.yellow(fileResult.filepath));
-        for (var j = 0; j < fileResult.errors.length; j++) {
-          var err = fileResult.errors[j];
-          if (err.line !== undefined) {
-            gutil.log(gutil.colors.red('  --[' +
-              err.line +
-              ':' +
-              err.col +
-              '] ' +
-              err.msg));
-          } else {
-            gutil.log(gutil.colors.red('  --[fileResult] ' +
-              err.msg));
-          }
-        }
+      if (options.reportFn) {
+	      options.reportFn(result.failed);
+      } else {
+      	defaultReportFn(result.failed);
       }
       cb();
     }
