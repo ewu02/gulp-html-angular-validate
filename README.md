@@ -21,17 +21,17 @@ Uses all the [default html-angular-validate options](https://github.com/nikestep
 ```json
 [
     {
-        msg: 'Start tag seen without seeing a doctype first. Expected e.g. "<!DOCTYPE html>".',
-        line: 1,
-        col: 5
+        "msg": "Start tag seen without seeing a doctype first. Expected e.g. '<!DOCTYPE html>'.",
+        "line": 1,
+        "col": 5
     },{
-        msg: 'Element "head" is missing a required instance of child element "title".',
-        line: 2,
-        col: 9
+        "msg": "Element 'head' is missing a required instance of child element 'title'.",
+        "line": 2,
+        "col": 9
     }, {
-        msg: 'Unclosed element "div".',
-        line: 53,
-        col: 12
+        "msg": "Unclosed element 'div'.",
+        "line": 53,
+        "col": 12
     }
 ]
 ```
