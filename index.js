@@ -32,8 +32,7 @@ function validate(file, options, cb) {
           }
         }
       }
-      this.emit('error', new gutil.PluginError(pluginName, 'HTML Validation errors found!'));
-      cb();
+      cb('HTML Validation errors found!');
     }
   }, function(err) { // Unable to validate files
     gutil.log(gutil.colors.red('htmlangular error: ' + err));
