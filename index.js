@@ -8,6 +8,7 @@ var htmlValidate = require('html-angular-validate');
 
 function validate(file, options, cb) {
   var self = this;
+  var errorMessage = 'HTML Validation errors found!';
   htmlValidate.validate(file.path, options).then(function(result) {
     self.push(file);
     if (result.allpassed) {
@@ -32,7 +33,14 @@ function validate(file, options, cb) {
           }
         }
       }
-      cb('HTML Validation errors found!');
+      if(options.emitError){
+        this.emit('error', new gutil.PluginError(pluginName, errorMessage));
+      }
+      if(options.errorInCallback){
+        cb(errorMessage);
+      }else{
+        cb();
+      }
     }
   }, function(err) { // Unable to validate files
     gutil.log(gutil.colors.red('htmlangular error: ' + err));
