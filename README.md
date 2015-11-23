@@ -30,4 +30,17 @@ gulp.task('html-lint', function () {
 
 Options
 -------
-[html-angular-validate options](https://github.com/nikestep/html-angular-validate#options)
+Uses all the options available to [html-angular-validate](https://github.com/nikestep/html-angular-validate#options)
+
+
+Custom Gulp Options
+-------
+**Name**: `emitError`
+**Type**: boolean
+**Default**: `false`
+**Description**: Set this to `true` if you want the gulp task to emit an error when validation failure occur.
+
+**Name**: `errorInCallback`
+**Type**: boolean
+**Default**: `false`
+**Description**: Set this to `true` if you want the gulp task's callback to return a message saying there were validation failures.
