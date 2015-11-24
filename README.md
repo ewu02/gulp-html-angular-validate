@@ -16,7 +16,24 @@ Options
 -------
 Uses all the [default html-angular-validate options](https://github.com/nikestep/html-angular-validate#options), but one has been added here to allow for custom log output if desired.
 
-`reportFn` is an optional `function` that takes an array of file failure objects.  See below for usage.  An example array of file failure objects might look like this:
+
+
+Custom Gulp Options
+-------
+**Name**: `emitError`
+**Type**: boolean
+**Default**: `false`
+**Description**: Set this to `true` if you want the gulp task to emit an error when validation failure occur.
+
+**Name**: `errorInCallback`
+**Type**: boolean
+**Default**: `false`
+**Description**: Set this to `true` if you want the gulp task's callback to return a message saying there were validation failures.
+
+**Name**: `reportFn`
+**Type**: function
+**Default**: `null`
+**Description**: An optional function that takes an array of file failure objects.  See below for usage.  An example array of file failure objects might look like this:
 
 ```json
 [
@@ -46,6 +63,7 @@ gulp.task('html-lint', function () {
   var options = {
     customattrs: ['*'],
     customtags: ['*'],
+    emitError: true,
     reportFn:function(fileFailures){
         for (var i = 0; i < fileFailures.length; i++) {
 		    var fileResult = fileFailures[i];
