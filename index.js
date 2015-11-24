@@ -40,12 +40,12 @@ function validate(file, options, cb) {
       } else {
       	defaultReportFn(result.failed);
       }
-      if(options.emitError){
+      if (options.emitError) {
         this.emit('error', new gutil.PluginError(pluginName, errorMessage));
       }
-      if(options.errorInCallback){
+      if (options.errorInCallback) {
         cb(errorMessage);
-      }else{
+      } else {
         cb();
       }
     }
