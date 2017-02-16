@@ -58,6 +58,7 @@ Usage
 ```javascript
 var gulp = require('gulp');
 var validate = require('gulp-html-angular-validate');
+var gutil = require('gulp-util');
 
 gulp.task('html-lint', function () {
   var options = {
